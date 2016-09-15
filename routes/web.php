@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::group(['middleware' => 'web'], function () {
+  Route::get('example', 'ExampleController@getExample');
+  Route::post('example', 'ExampleController@postExample');
+});
+
+Route::get('/',
+  ['as' => 'index', 'uses' => 'AboutController@create']);
+Route::post('/',
+  ['as' => 'contact_store', 'uses' => 'AboutController@store']);
