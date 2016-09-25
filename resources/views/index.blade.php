@@ -232,7 +232,7 @@
       <ul class="inline">
 		      <button class="facebook"><a href="https://www.facebook.com/hbcgroupkw" target="_blank"><span class="fa fa-facebook" alt="Like us on Facebook" title="Like us on Facebook"><img src="images/facebookIcon.jpg" height="30px" width="30px"></span></a></li>
           <button class="twitter"><a href="https://twitter.com/hbcgroupkw" target="_blank"><span class="fa fa-twitter" alt="Follow us on Twitter" title="Follow us on Twitter"><img src="images/twitterIcon.jpg" height="30px" width="30px"></span></a></li>
-          <button class="pinterest"><a href="https://www.pinterest.com/hbcrealtygroup/" target="_blank"><span class="fa fa-pinterest" alt="Follow Us on Pinterest" title="Follow us on Pinterest"><img src="images/pinterestIcon.jpg" height="30px" width="30px"></span></a></li>
+          <button class="pinterest"><a href="https://www.pinterest.com/hbcrealtygroup/" target="_blank"><span class="fa fa-pinterest" alt="Follow Us on Pinterest" title="Follow us on Pinterest"><img src="images/PinterestIcon.jpg" height="30px" width="30px"></span></a></li>
 		<!-- <li><a href="http://www.youtube.com/user/HBCRealtyGroup" title="YouTube" target="_blank"><span class="fa fa-youtube" class="youtube-ico" alt="Follow us on YouTube" title="Follow us on YouTube" /></span></a></li> -->
 			</ul> <!-- END .social-media-buttons -->
 	<p class="phone">703-734-0192</p>
