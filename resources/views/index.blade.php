@@ -29,9 +29,6 @@
         <meta name="twitter:title" content="Home Benefit IQ - HBC Group">
         <!--{{ Html::style('css/style.css') }}-->
         <link rel="shortcut icon" href="http://www.hbcrealtygroup.com/favicon.ico" type="image/x-icon"><!-- Favi -->
-        <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
-
-        </head>
         <style>
         body {
           /** font-family: 'Futura Lt BT'; **/
@@ -138,9 +135,11 @@
            <hr style="color:#000000;size:2;"/>
           <div class="page-content"><p>Please take a moment to fill out the form below if you would like more information about your benefits that HBC Realty Group can offer:</p>
 </div>
-<!--
-<h1>Contact TODOParrot</h1>
-
+@if(Session::has('message'))
+    <div class="alert alert-info">
+      {{Session::get('message')}}
+    </div>
+@else
 <ul>
     @foreach($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -149,76 +148,106 @@
 
 {!! Form::open(array('route' => 'contact_store', 'class' => 'form')) !!}
 
+<div class="form-padding col-lg-6 col-md-6 col-sm-6 col-xs-12">
 <div class="form-group">
-    {!! Form::label('Your Name') !!}
+    {!! Form::label('Name*') !!}
     {!! Form::text('name', null,
         array('required',
               'class'=>'form-control',
-              'placeholder'=>'Your name')) !!}
+              'placeholder'=>'')) !!}
 </div>
-
 <div class="form-group">
-    {!! Form::label('Your E-mail Address') !!}
+    {!! Form::label('Email*') !!}
     {!! Form::text('email', null,
         array('required',
               'class'=>'form-control',
-              'placeholder'=>'Your e-mail address')) !!}
+              'placeholder'=>'')) !!}
+</div>
+<div class="form-group">
+    {!! Form::label('Employer') !!}
+    {!! Form::text('employer', null,
+        array('class'=>'form-control',
+              'placeholder'=>'')) !!}
+</div>
+<div class="form-group">
+    {!! Form::label('Phone') !!}
+    {!! Form::text('phone', null,
+        array('class'=>'form-control',
+              'placeholder'=>'')) !!}
+</div>
 </div>
 
-<div class="form-group">
-    {!! Form::label('Your Message') !!}
-    {!! Form::textarea('message', null,
-        array('required',
-              'class'=>'form-control',
-              'placeholder'=>'Your message')) !!}
-</div>
+<div class="form-padding col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <div class="form-group">
+      {!! Form::label('Address') !!}
+      {!! Form::text('address', null,
+          array('class'=>'form-control',
+                'placeholder'=>'')) !!}
+  </div>
+  <div class="form-group">
+      {!! Form::label('City') !!}
+      {!! Form::text('city', null,
+          array('class'=>'form-control',
+                'placeholder'=>'')) !!}
+  </div>
+  <div class="form-group">
+      {!! Form::label('Zipcode') !!}
+      {!! Form::text('zipcode', null,
+          array('class'=>'form-control',
+                'placeholder'=>'')) !!}
+  </div>
+  <div class="form-group">
+      {!! Form::label('State') !!}</br>
+      {!! Form::select('state',array('AL'=>'Alabama','AK'=>'Alaska','AZ'=>'Arizona','AR'=>'Arkansas','CA'=>'California','CO'=>'Colorado','CT'=>'Connecticut','DE'=>'Delaware','DC'=>'District of Columbia','FL'=>'Florida','GA'=>'Georgia','HI'=>'Hawaii','ID'=>'Idaho','IL'=>'Illinois','IN'=>'Indiana','IA'=>'Iowa','KS'=>'Kansas','KY'=>'Kentucky','LA'=>'Louisiana','ME'=>'Maine','MD'=>'Maryland','MA'=>'Massachusetts','MI'=>'Michigan','MN'=>'Minnesota','MS'=>'Mississippi','MO'=>'Missouri','MT'=>'Montana','NE'=>'Nebraska','NV'=>'Nevada','NH'=>'New Hampshire','NJ'=>'New Jersey','NM'=>'New Mexico','NY'=>'New York','NC'=>'North Carolina','ND'=>'North Dakota','OH'=>'Ohio','OK'=>'Oklahoma','OR'=>'Oregon','PA'=>'Pennsylvania','RI'=>'Rhode Island','SC'=>'South Carolina','SD'=>'South Dakota','TN'=>'Tennessee','TX'=>'Texas','UT'=>'Utah','VT'=>'Vermont','VA'=>'Virginia','WA'=>'Washington','WV'=>'West Virginia','WI'=>'Wisconsin','WY'=>'Wyoming',),
+     array(
+    'class' => 'form-control'
+)); !!}
+  </div>
 
-<div class="form-group">
-    {!! Form::submit('Contact Us!',
-      array('class'=>'btn btn-primary')) !!}
-</div>
-{!! Form::close() !!}
--->
-<div class="form-padding col-lg-5 col-md-5 col-sm-5 col-xs-12">
-<div><label>Name<span class="required">*</span></label></div>
-  <div><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" style="background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; background-repeat: no-repeat;"></span> </div>
-  <div><label>Email<span class="required">*</span></label></div>
-    <div><span class="wpcf7-form-control-wrap email-403"><input type="email" name="email-403" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span></div>
-<div><label>Employer</label></div>
-  <div><span class="wpcf7-form-control-wrap employer"><input type="text" name="employer" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </div>
-<div><label>Phone</label></div>
-  <div><span class="wpcf7-form-control-wrap telephone"><input type="text" name="telephone" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </div>
-</div>
-<div class="form-padding col-lg-7 col-md-7 col-sm-7 col-xs-12">
-<div><label>Address</label></div>
-  <div><span class="wpcf7-form-control-wrap your-address"><input type="text" name="your-address" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </div>
-<div class="city"><label>City</label></div>
-  <div><span class="wpcf7-form-control-wrap city"><input type="text" name="city" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </div>
-<div class="state"><label>State</label></div>
-  <div><span class="wpcf7-form-control-wrap state"><select name="state" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value="">---</option><option value="AL">AL</option><option value="AK">AK</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="FL">FL</option><option value="GA">GA</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PA">PA</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option></select></span> </div>
-<div class="zip"><label>Zip Code</label></div>
-  <div><span class="wpcf7-form-control-wrap zip"><input type="text" name="zip" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </div>
 </div>
 <div class="form-padding interests col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<div><label>What are you interested in?</label> <span class="wpcf7-form-control-wrap interest"><select name="interest" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value="">---</option><option value="Buying a Home">Buying a Home</option><option value="Selling a Home">Selling a Home</option><option value="General Info">General Info</option></select></span></div>
-<div><label>Price range of home?</label> <span class="wpcf7-form-control-wrap price"><select name="price" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value="">---</option><option value="less than $250,000">less than $250,000</option><option value="$250,000 - $500,000">$250,000 - $500,000</option><option value="$500,000 - $750,000">$500,000 - $750,000</option><option value="$750,000 - $1,000,000">$750,000 - $1,000,000</option><option value="$1,000,000 - $2,000,000">$1,000,000 - $2,000,000</option><option value="greater than $2,000,000">greater than $2,000,000</option></select></span></div>
-<div><label>Where are you considering buying or selling a home?</label></div>
-  <div><span class="wpcf7-form-control-wrap area"><input type="text" name="area" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span></div>
-<div><label>Your Message<span class="required">*</span></label></div>
-  <div><textarea rows="10" cols="100"></textarea></div>
-<div>Security Code:<br>
-  {!! captcha_image_html('ExampleCaptcha') !!}
-<input type="text" id="CaptchaCode" name="CaptchaCode"></div>
-<p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"><img class="ajax-loader" alt="Sending ..." style="visibility: hidden;"></p>
+  <div class="form-group">
+      {!! Form::label('What are you interested in?*') !!}
+      {!! Form::select('interest',array('General'=>'General Info','Buy'=>'Buying a Home','Sell'=>'Selling a Home',),
+      array('required',
+      'class' => 'form-control'
+      )); !!}
+  </div>
+  <div class="form-group">
+      {!! Form::label('Price range of home?') !!}
+      {!! Form::select('price',array('0-250k'=>'less than $250,000','250k-500k'=>'$250,000 - $500,000','500k-750k'=>'$500,000 - $750,000','750k-1m'=>'$750,000 - $1,000,000','1m-2m'=>'$1,000,000 - $2,000,000','2m+'=>'greater than $2,000,000'),
+      array(
+      'class' => 'form-control'
+      )); !!}
+  </div>
+  <div class="form-group">
+      {!! Form::label('What is your timing to buy/sell a home?') !!}
+      {!! Form::select('time',array('0-3'=>'less than 3 months','3-6'=>'3 to 6 months','6-12'=>'6 months to a year','12+'=>'greater than a year',),
+      array(
+      'class' => 'form-control'
+      )); !!}
+  </div>
+<div class="form-group">
+    {!! Form::label('Message') !!}
+    {!! Form::textarea('message', null,
+        array('class'=>'form-control',
+              'placeholder'=>'')) !!}
 </div>
-<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
+<div class="form-group">
+{!! Recaptcha::render() !!}
 </div>
 
-				<ul class="gal-container page-gal"><!-- BEGIN gallery -->
-												</ul><!-- END Gallery --><!-- </div> /#team-thumbnail-gallery -->
+  <div class="form-group">
+    {!! Form::submit('Contact Us!',
+      array('class'=>'btn btn-default')) !!}
+</div>
+</div>
+{!! Form::close() !!}
+
+@endif
 
 
-				    	</article>
+			</article>
 		</div> <!-- END .col-lg-9 .col-xs-12 .page-content -->
 	</div><!-- END .basic-container -->
 </div>
