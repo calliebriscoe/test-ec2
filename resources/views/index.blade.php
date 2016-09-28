@@ -129,11 +129,10 @@
 <body>
 <div style="margin-left:6em;margin-right:6em" class="content-area">
 	<div class="basic-container">
-		<div class="col-lg-9 col-xs-12 content-container">
-			<article>
+		<div class="col-lg-12 col-xs-12 content-container">
       		<h1 class="page-title">Home Benefit IQ</h1>
            <hr style="color:#000000;size:2;"/>
-          <div class="page-content"><p>Please take a moment to fill out the form below if you would like more information about your benefits that HBC Realty Group can offer:</p>
+          <div class="page-content"><p>Please take a moment to fill out the form below if you would like more information about your benefits that HBC Group can offer:</p>
 </div>
 @if(Session::has('message'))
     <div class="alert alert-info">
@@ -174,7 +173,7 @@
     {!! Form::text('phone', null,
         array('class'=>'form-control',
               'placeholder'=>'')) !!}
-</div>
+</div></br></br>
 </div>
 
 <div class="form-padding col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -198,59 +197,68 @@
   </div>
   <div class="form-group">
       {!! Form::label('State') !!}</br>
-      {!! Form::select('state',array('AL'=>'Alabama','AK'=>'Alaska','AZ'=>'Arizona','AR'=>'Arkansas','CA'=>'California','CO'=>'Colorado','CT'=>'Connecticut','DE'=>'Delaware','DC'=>'District of Columbia','FL'=>'Florida','GA'=>'Georgia','HI'=>'Hawaii','ID'=>'Idaho','IL'=>'Illinois','IN'=>'Indiana','IA'=>'Iowa','KS'=>'Kansas','KY'=>'Kentucky','LA'=>'Louisiana','ME'=>'Maine','MD'=>'Maryland','MA'=>'Massachusetts','MI'=>'Michigan','MN'=>'Minnesota','MS'=>'Mississippi','MO'=>'Missouri','MT'=>'Montana','NE'=>'Nebraska','NV'=>'Nevada','NH'=>'New Hampshire','NJ'=>'New Jersey','NM'=>'New Mexico','NY'=>'New York','NC'=>'North Carolina','ND'=>'North Dakota','OH'=>'Ohio','OK'=>'Oklahoma','OR'=>'Oregon','PA'=>'Pennsylvania','RI'=>'Rhode Island','SC'=>'South Carolina','SD'=>'South Dakota','TN'=>'Tennessee','TX'=>'Texas','UT'=>'Utah','VT'=>'Vermont','VA'=>'Virginia','WA'=>'Washington','WV'=>'West Virginia','WI'=>'Wisconsin','WY'=>'Wyoming',),
+      {!! Form::select('state',array('None'=>'Select a State','AL'=>'Alabama','AK'=>'Alaska','AZ'=>'Arizona','AR'=>'Arkansas','CA'=>'California','CO'=>'Colorado','CT'=>'Connecticut','DE'=>'Delaware','DC'=>'District of Columbia','FL'=>'Florida','GA'=>'Georgia','HI'=>'Hawaii','ID'=>'Idaho','IL'=>'Illinois','IN'=>'Indiana','IA'=>'Iowa','KS'=>'Kansas','KY'=>'Kentucky','LA'=>'Louisiana','ME'=>'Maine','MD'=>'Maryland','MA'=>'Massachusetts','MI'=>'Michigan','MN'=>'Minnesota','MS'=>'Mississippi','MO'=>'Missouri','MT'=>'Montana','NE'=>'Nebraska','NV'=>'Nevada','NH'=>'New Hampshire','NJ'=>'New Jersey','NM'=>'New Mexico','NY'=>'New York','NC'=>'North Carolina','ND'=>'North Dakota','OH'=>'Ohio','OK'=>'Oklahoma','OR'=>'Oregon','PA'=>'Pennsylvania','RI'=>'Rhode Island','SC'=>'South Carolina','SD'=>'South Dakota','TN'=>'Tennessee','TX'=>'Texas','UT'=>'Utah','VT'=>'Vermont','VA'=>'Virginia','WA'=>'Washington','WV'=>'West Virginia','WI'=>'Wisconsin','WY'=>'Wyoming','Other'=>'Other',),
      array(
     'class' => 'form-control'
 )); !!}
   </div>
-
 </div>
-<div class="form-padding interests col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="form-group">
-      {!! Form::label('What are you interested in?*') !!}
-      {!! Form::select('interest',array('General'=>'General Info','Buy'=>'Buying a Home','Sell'=>'Selling a Home',),
-      array('required',
-      'class' => 'form-control'
-      )); !!}
-  </div>
-  <div class="form-group">
-      {!! Form::label('Price range of home?') !!}
-      {!! Form::select('price',array('0-250k'=>'less than $250,000','250k-500k'=>'$250,000 - $500,000','500k-750k'=>'$500,000 - $750,000','750k-1m'=>'$750,000 - $1,000,000','1m-2m'=>'$1,000,000 - $2,000,000','2m+'=>'greater than $2,000,000'),
-      array(
-      'class' => 'form-control'
-      )); !!}
-  </div>
-  <div class="form-group">
-      {!! Form::label('What is your timing to buy/sell a home?') !!}
-      {!! Form::select('time',array('0-3'=>'less than 3 months','3-6'=>'3 to 6 months','6-12'=>'6 months to a year','12+'=>'greater than a year',),
-      array(
-      'class' => 'form-control'
-      )); !!}
-  </div>
-<div class="form-group">
-    {!! Form::label('Message') !!}
-    {!! Form::textarea('message', null,
-        array('class'=>'form-control',
-              'placeholder'=>'')) !!}
-</div>
-<div class="form-group">
-{!! Recaptcha::render() !!}
+</div> <!-- END .col-lg-9 .col-xs-12 .page-content -->
+</div><!-- END .basic-container -->
 </div>
 
-  <div class="form-group">
-    {!! Form::submit('Contact Us!',
-      array('class'=>'btn btn-default')) !!}
-</div>
-</div>
-{!! Form::close() !!}
+  <div style="margin-left:6em;margin-right:6em" class="content-area">
+  <div class="basic-container" id="house_info">
+    <div class="col-lg-12 col-xs-12 content-container">
+      <div class="form-padding col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="form-group">
+          {!! Form::label('What are you interested in?*') !!}
+          {!! Form::select('interest',array('None'=>'Select an Interest','General'=>'General Info','Buy'=>'Buying a Home','Sell'=>'Selling a Home',),
+          array('required',
+          'class' => 'form-control'
+          )); !!}
+      </div>
+      <div class="form-group">
+          {!! Form::label('If you choose buying, where are you looking to move?') !!}
+          {!! Form::text('where', null,
+              array('class'=>'form-control',
+                    'placeholder'=>'City, State')) !!}
+      </div>
+      <div class="form-group">
+      {!! Recaptcha::render() !!}
+    </div></br></br>
+      </div>
 
-@endif
 
+      <div class="form-padding col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+            {!! Form::label('Price range of home?') !!}
+            {!! Form::select('price',array('None'=>'Select a Range','0-250k'=>'less than $250,000','250k-500k'=>'$250,000 - $500,000','500k-750k'=>'$500,000 - $750,000','750k-1m'=>'$750,000 - $1,000,000','1m-2m'=>'$1,000,000 - $2,000,000','2m+'=>'greater than $2,000,000'),
+            array(
+            'class' => 'form-control'
+            )); !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('What is your timing to buy/sell a home?') !!}
+            {!! Form::select('time',array('None'=>'Select a Range','0-3'=>'less than 3 months','3-6'=>'3 to 6 months','6-12'=>'6 months to a year','12+'=>'greater than a year',),
+            array(
+            'class' => 'form-control'
+            )); !!}
+        </div></br></br></br>
 
-			</article>
-		</div> <!-- END .col-lg-9 .col-xs-12 .page-content -->
-	</div><!-- END .basic-container -->
-</div>
+          <div class="form-group" style="float:right;">
+            {!! Form::submit('Contact Us!',
+              array('class'=>'btn btn-default btn-lg')) !!}
+        </div>
+      </div>
+    </div>
+      {!! Form::close() !!}
+
+      @endif
+
+      		</div> <!-- END .col-lg-9 .col-xs-12 .page-content -->
+      	</div><!-- END .basic-container -->
+
 
 
 

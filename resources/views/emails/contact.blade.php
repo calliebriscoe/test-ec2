@@ -12,8 +12,8 @@
 
 <p>Interest: {{ $interest }}</p>
 
+<p>Where: {{ $where }}</p>
+
 <p>Price Range: {{ $price }}</p>
 
 <p>Timeframe: {{ $time }}</p>
-
-<p>Message: {{ $contactMessage }}</p>

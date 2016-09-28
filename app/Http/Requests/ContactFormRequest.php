@@ -36,7 +36,7 @@ class ContactFormRequest extends FormRequest
         'interest' => 'required',
         'price' => 'max:20',
         'time' => 'max:20',
-        'message' => 'max:500',
+        'where' => 'max:200',
         'g-recaptcha-response' => 'required|recaptcha',
       ];
     }
