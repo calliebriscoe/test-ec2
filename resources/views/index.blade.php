@@ -129,11 +129,10 @@
 <body>
 <div style="margin-left:6em;margin-right:6em" class="content-area">
 	<div class="basic-container">
-		<div class="col-lg-9 col-xs-12 content-container">
-			<article>
+		<div class="col-lg-12 col-xs-12 content-container">
       		<h1 class="page-title">Home Benefit IQ</h1>
            <hr style="color:#000000;size:2;"/>
-          <div class="page-content"><p>Please take a moment to fill out the form below if you would like more information about your benefits that HBC Realty Group can offer:</p>
+          <div class="page-content"><p>Please take a moment to fill out the form below if you would like more information about your benefits that HBC Group can offer:</p>
 </div>
 @if(Session::has('message'))
     <div class="alert alert-info">
@@ -174,7 +173,23 @@
     {!! Form::text('phone', null,
         array('class'=>'form-control',
               'placeholder'=>'')) !!}
+</div></br>
+<div class="form-group">
+    {!! Form::label('What are you interested in?*') !!}
+    {!! Form::select('interest',array('None'=>'Select an Interest','General'=>'General Info','Buy'=>'Buying a Home','Sell'=>'Selling a Home',),
+    array('required',
+    'class' => 'form-control'
+    )); !!}
 </div>
+<div class="form-group">
+    {!! Form::label('If you choose buying, where are you looking to move?') !!}
+    {!! Form::text('where', null,
+        array('class'=>'form-control',
+              'placeholder'=>'City, State')) !!}
+</div>
+<div class="form-group">
+{!! Recaptcha::render() !!}
+</div><hr style="height:30pt; visibility:hidden;" />
 </div>
 
 <div class="form-padding col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -202,52 +217,30 @@
      array(
     'class' => 'form-control'
 )); !!}
-  </div>
-
-</div>
-<div class="form-padding interests col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div class="form-group">
-      {!! Form::label('What are you interested in?*') !!}
-      {!! Form::select('interest',array('General'=>'General Info','Buy'=>'Buying a Home','Sell'=>'Selling a Home',),
-      array('required',
-      'class' => 'form-control'
-      )); !!}
-  </div>
+  </div><hr style="height:5pt; visibility:hidden;" />
   <div class="form-group">
       {!! Form::label('Price range of home?') !!}
-      {!! Form::select('price',array('0-250k'=>'less than $250,000','250k-500k'=>'$250,000 - $500,000','500k-750k'=>'$500,000 - $750,000','750k-1m'=>'$750,000 - $1,000,000','1m-2m'=>'$1,000,000 - $2,000,000','2m+'=>'greater than $2,000,000'),
+      {!! Form::select('price',array('None'=>'Select a Range','0-250k'=>'less than $250,000','250k-500k'=>'$250,000 - $500,000','500k-750k'=>'$500,000 - $750,000','750k-1m'=>'$750,000 - $1,000,000','1m-2m'=>'$1,000,000 - $2,000,000','2m+'=>'greater than $2,000,000'),
       array(
       'class' => 'form-control'
       )); !!}
   </div>
   <div class="form-group">
       {!! Form::label('What is your timing to buy/sell a home?') !!}
-      {!! Form::select('time',array('0-3'=>'less than 3 months','3-6'=>'3 to 6 months','6-12'=>'6 months to a year','12+'=>'greater than a year',),
+      {!! Form::select('time',array('None'=>'Select a Range','0-3'=>'less than 3 months','3-6'=>'3 to 6 months','6-12'=>'6 months to a year','12+'=>'greater than a year',),
       array(
       'class' => 'form-control'
       )); !!}
-  </div>
-<div class="form-group">
-    {!! Form::label('Message') !!}
-    {!! Form::textarea('message', null,
-        array('class'=>'form-control',
-              'placeholder'=>'')) !!}
-</div>
-<div class="form-group">
-{!! Recaptcha::render() !!}
-</div>
-
-  <div class="form-group">
+  </div><hr style="height:10pt; visibility:hidden;" />
+  <div class="form-group" style="float:right;">
     {!! Form::submit('Contact Us!',
-      array('class'=>'btn btn-default')) !!}
+      array('class'=>'btn btn-default btn-lg')) !!}
 </div>
 </div>
 {!! Form::close() !!}
 
 @endif
 
-
-			</article>
 		</div> <!-- END .col-lg-9 .col-xs-12 .page-content -->
 	</div><!-- END .basic-container -->
 </div>
