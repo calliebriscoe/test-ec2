@@ -18,8 +18,11 @@ class AboutController extends Controller
 
     public function store(ContactFormRequest $request)
     {
+<<<<<<< HEAD
       //$senderName = $request->get('name');
       //$senderEmail = $request->get('email');
+=======
+>>>>>>> CallieMain
 
        \Mail::send('emails.contact',
         array(
@@ -39,7 +42,7 @@ class AboutController extends Controller
         ), function($message)
     {
         $message->from('jenny@hbcgroupkw.com');
-        $message->to('jenny@hbcgroupkw.com', 'Admin')->subject('Contact us');
+        $message->to('jenny@hbcgroupkw.com', 'HomeBenfitsIQ')->subject('Contact us');
     });
 
 
